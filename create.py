@@ -49,7 +49,7 @@ for i_student, student in enumerate(students):
                 break
             
             counter = 10
-            print("         Retrying in 60 seconds", end="", flush=True)
+            print("           Retrying in 60 seconds", end="", flush=True)
             for _ in range(12):
                 print(".", end="", flush=True)
                 time.sleep(5)
