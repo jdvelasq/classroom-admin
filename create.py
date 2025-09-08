@@ -17,7 +17,7 @@ with open(f"{path}/templates.txt") as f:
 with open(f"{path}/prefixes.txt") as f:
     prefixes = [line.strip() for line in f.readlines() if line.strip()]
 
-fail = False
+
 counter = 10
 
 for i_student, student in enumerate(students):
@@ -31,31 +31,29 @@ for i_student, student in enumerate(students):
         
         repo_name = f"{prefix}-{student}"
 
-        result = subprocess.run(["./create.sh", org, repo_name, template])
+        while True:
 
-        counter -= 1
+            result = subprocess.run(["./create.sh", org, repo_name, template])
 
-        if counter > 0:
-            time.sleep(3)
-        else:
+            if result.returncode == 0:
+
+                counter -= 1
+
+                if counter > 0:
+                    time.sleep(3)
+                else:
+                    counter = 10
+                    print("\n  Pausing for avoiding rate limit\n")
+                    time.sleep(45)
+
+                break
+            
             counter = 10
+            print("         Retrying in 60 seconds", end="", flush=True)
+            for _ in range(12):
+                print(".", end="", flush=True)
+                time.sleep(5)
             print()
-            print("  Pausing for avoiding rate limit")
-            print()
-            time.sleep(30)
 
-        if result.returncode != 0:
-            fail = True
-            break
-
-    if fail:
-        print("  Exiting!")
-        exit()
-
-    
-    # print()
-    # print("Waiting 90 seconds to avoid rate limiting...")
-    # print()
-    # time.sleep(90)
 
 print("finished!")
