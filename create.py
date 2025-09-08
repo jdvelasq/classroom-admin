@@ -38,6 +38,7 @@ for i_student, student in enumerate(students):
             if result.returncode == 0:
 
                 counter -= 1
+                retries = 0
 
                 if counter > 0:
                     time.sleep(3)
@@ -49,10 +50,14 @@ for i_student, student in enumerate(students):
                 break
             
             counter = 10
-            print("           Retrying in 60 seconds", end="", flush=True)
-            for _ in range(12):
+            retries += 1
+            time_to_sleep = 1
+            if retries <= 5:
+                time_to_sleep = 5 
+            print(f"           ({retries:>2d}) Retrying in {time_to_sleep} minutes", end="", flush=True)
+            for _ in range(time_to_sleep * 6):                
+                time.sleep(10)
                 print(".", end="", flush=True)
-                time.sleep(5)
             print()
 
 
