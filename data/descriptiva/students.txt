@@ -1,12 +1,3 @@
-jdholguinm
-DannaLondono
-DavidALondono
-ElianaMelguizoBuiles
-kemonsalvec
-DavidMontoya06
-amorenocal-lang
-MIGUELMORENO3200
-MarianaOsorioM
 losornom-spec
 dieperezmo-eng
 omramirezg
@@ -29,3 +20,12 @@ alejoGomez75
 estgomezhen-svg
 ManuelaGrandaMunoz99
 andresfherreraa
+jdholguinm
+DannaLondono
+DavidALondono
+ElianaMelguizoBuiles
+kemonsalvec
+DavidMontoya06
+amorenocal-lang
+MIGUELMORENO3200
+MarianaOsorioM
