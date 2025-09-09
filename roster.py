@@ -4,7 +4,7 @@ import pandas as pd
 
 # Data:
 
-path = "data/descriptiva"
+path = "data/fundamentos"
 
 roster = pd.read_csv(f"{path}/classroom_roster.csv")
 usernames = roster.github_username.tolist()
