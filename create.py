@@ -4,8 +4,8 @@ import subprocess
 import time
 
 # Data:
-org = "2025-2-descriptiva"
-path = "data/descriptiva"
+org = "2025-2-predictiva"
+path = "data/predictiva"
 
 # Read data from files
 with open(f"{path}/students.txt") as f:
