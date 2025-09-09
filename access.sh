@@ -39,7 +39,7 @@ gh api \
   -X PUT \
   -H "Accept: application/vnd.github+json" \
   "/repos/${ORG_REPO}/collaborators/${COLLABORATOR}" \
-  -f permission=push
-  >/dev/null
+  -f permission=push \
+  >/dev/null 2>&1
 
 echo "  ${ORG_REPO}"
