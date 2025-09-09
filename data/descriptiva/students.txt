@@ -1,14 +1,6 @@
-losornom-spec
-dieperezmo-eng
-omramirezg
-LissyGraceRestrepo
-sromeropo
-laurasanin
-jotorresbe
 v1ct0rv
 jkatherinezapata
 laugrei1821
-
 jucalleg-unal
 tcarmona0108
 Ancarrenv
@@ -29,3 +21,11 @@ DavidMontoya06
 amorenocal-lang
 MIGUELMORENO3200
 MarianaOsorioM
+losornom-spec
+dieperezmo-eng
+omramirezg
+LissyGraceRestrepo
+sromeropo
+laurasanin
+jotorresbe
+
