@@ -7,6 +7,7 @@ LAB-06-limpieza-de-datos-de-solicitudes-de-credito
 LAB-07-matplotlib-news-plot
 LAB-08-matplotlib-dashboard
 LAB-09-sql-con-sqlite
+
 PRE-02-maquina-enigma
 PRE-03-programacion-en-python-mapreduce
 PRE-04-consultas-sql-en-mapreduce

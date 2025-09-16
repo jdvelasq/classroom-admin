@@ -25,6 +25,7 @@ PRE-24-reduccion-de-la-dimensionalidad-digits
 PRE-25-patrones-de-demanda-diaria
 PRE-26-visualizacion-mercado-accionario
 PRE-27-prediccion-basica-series-de-tiempo
+
 LAB-01-python-basico
 LAB-02-pandas
 LAB-03-ingestion-de-texto-plano
