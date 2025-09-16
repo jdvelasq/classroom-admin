@@ -19,7 +19,7 @@ org_mapping = {
 }
 
 
-def check_inputs_are_ok(self):
+def check_inputs_are_ok():
     """Check inputs."""
 
     if fixer.constants.course is None:
@@ -58,9 +58,20 @@ class ActionsShell(BaseShell):
         org_repo = f"{org}/{repo_name}"
         org_template = f"{org}/{template}"
 
-        cmd = f"gh repo create {org_repo} --public --template {org_template} -y >/dev/null 2>&1"
-
-        result = subprocess.run([cmd])
+        result = subprocess.run(
+            [
+                "gh",
+                "repo",
+                "create",
+                org_repo,
+                "--public",
+                "--template",
+                org_template,
+                "-y",
+            ],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.STDOUT,
+        )
 
         if result.returncode != 0:
             print()
@@ -86,9 +97,13 @@ class ActionsShell(BaseShell):
         repo_name = f"{prefix}-{student}"
         org_repo = f"{org}/{repo_name}"
 
-        cmd = f"gh repo delete {org_repo} --yes >/dev/null 2>&1"
+        # cmd = f'gh repo delete "{org_repo}" --yes >/dev/null 2>&1'
 
-        result = subprocess.run([cmd])
+        result = subprocess.run(
+            ["gh", "repo", "delete", org_repo, "--yes"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.STDOUT,
+        )
 
         if result.returncode != 0:
             print()
@@ -114,16 +129,21 @@ class ActionsShell(BaseShell):
         org = org_mapping[course]
         org_repo = f"{org}/{repo_name}"
 
-        cmd = f"""
-            gh api \
-            -X PUT \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/{org_repo}/collaborators/{student}" \
-            -f permission=push \
-            >/dev/null 2>&1
-            """
-
-        result = subprocess.run([cmd])
+        result = subprocess.run(
+            [
+                "gh",
+                "api",
+                "-X",
+                "PUT",
+                "-H",
+                "Accept: application/vnd.github+json",
+                f"/repos/{org_repo}/collaborators/{student}",
+                "-f",
+                "permission=push",
+            ],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.STDOUT,
+        )
 
         if result.returncode != 0:
             print()
