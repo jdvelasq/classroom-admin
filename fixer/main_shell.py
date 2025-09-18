@@ -47,7 +47,7 @@ class MainShell(BaseShell):
         elif fixer.constants.course == "predictiva":
             PredictivaaShell().update_prompt().cmdloop()
         elif fixer.constants.course == "fundamentos":
-            FundamentosShell().cmdloop()
+            FundamentosShell().update_prompt().cmdloop()
         self.update_prompt()
         self.do_help(arg)
 
