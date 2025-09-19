@@ -74,10 +74,10 @@ class ActionsShell(BaseShell):
         )
 
         if result.returncode != 0:
-            print()
+            # print()
             print("  Create command returns an error.")
         else:
-            print()
+            # print()
             print(f"  Created: {org_repo}")
 
         return True
@@ -106,10 +106,8 @@ class ActionsShell(BaseShell):
         )
 
         if result.returncode != 0:
-            print()
             print("  Delete command returns an error.")
         else:
-            print()
             print(f"  Deleted: {org_repo}")
 
         return True
@@ -146,10 +144,10 @@ class ActionsShell(BaseShell):
         )
 
         if result.returncode != 0:
-            print()
+            # print()
             print("  Grant command returns an error.")
         else:
-            print()
+            # print()
             print(f"  Granted: {org_repo}")
 
         return True
