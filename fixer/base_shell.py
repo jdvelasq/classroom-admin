@@ -20,7 +20,8 @@ class BaseShell(cmd.Cmd):
     def __init__(self):
         super().__init__()
         self.intro = ""
-        self.do_help(None)  # Print help on startup
+        # if not self.cmdqueue:
+        #     self.do_help(None)  # Print help on startup
 
     def do_help(self, arg):
         """Help function."""
