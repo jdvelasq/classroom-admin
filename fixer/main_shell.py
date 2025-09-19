@@ -25,34 +25,84 @@ from fixer.student_cmd import execute_student_command
 class MainShell(BaseShell):
 
     intro = "Welcome. Type help or ? to list commands.\n"
-
     prompt = make_colorized_prompt("fixer:none:none:none")
+
+    def cmdloop(self, intro=None):
+        if not self.cmdqueue:  # Only print help if not processing a batch
+            self.do_help("")
+        super().cmdloop(intro)
 
     def do_actions(self, arg):
         """Run actions."""
-        ActionsShell().update_prompt().cmdloop()
-        self.update_prompt()
-        self.do_help(arg)
+
+        shell = ActionsShell()
+        if self.cmdqueue:
+            cmd = self.cmdqueue.pop(0)
+            shell.cmdqueue.append(cmd)
+            shell.cmdloop()
+        else:
+            shell.do_help(arg)
+            shell.update_prompt()
+            shell.cmdloop()
+            self.do_help(arg)
 
     def do_course(self, arg):
         """Set course."""
-        CourseShell().cmdloop()
-        self.update_prompt()
-        self.do_help(arg)
+        shell = CourseShell()
+        if self.cmdqueue:
+            cmd = self.cmdqueue.pop(0)
+            shell.cmdqueue.append(cmd)
+            shell.cmdloop()
+            self.update_prompt()
+        else:
+            shell.do_help(arg)
+            shell.update_prompt()
+            shell.cmdloop()
+            self.update_prompt()
+            self.do_help(arg)
 
     def do_assigment(self, arg):
         """Set assigment."""
         if fixer.constants.course == "descriptiva":
-            DescriptivaShell().update_prompt().cmdloop()
+            shell = DescriptivaShell()
         elif fixer.constants.course == "predictiva":
-            PredictivaaShell().update_prompt().cmdloop()
+            shell = PredictivaaShell()
         elif fixer.constants.course == "fundamentos":
-            FundamentosShell().update_prompt().cmdloop()
-        self.update_prompt()
-        self.do_help(arg)
+            shell = FundamentosShell()
+        else:
+            print("Please set the course first.")
+            return
+
+        if self.cmdqueue:
+            cmd = self.cmdqueue.pop(0)
+            shell.cmdqueue.append(cmd)
+            shell.cmdloop()
+            self.update_prompt()
+        else:
+            shell.do_help(arg)
+            shell.update_prompt()
+            shell.cmdloop()
+            self.update_prompt()
+            self.do_help(arg)
 
     def do_student(self, arg):
         """Set student."""
-        execute_student_command()
-        self.update_prompt()
-        self.do_help(arg)
+        if self.cmdqueue:
+            cmd = self.cmdqueue.pop(0)
+            execute_student_command(cmd)
+        else:
+            execute_student_command()
+            self.update_prompt()
+            self.do_help(arg)
+
+    def do_batch(self, arg):
+        """Run commands from a file: batch <filename>"""
+        try:
+            with open(arg) as f:
+                commands = f.readlines()
+            commands = " ".join(commands)
+            commands = commands.split()
+            commands = [cmd.strip() for cmd in commands if cmd.strip()]
+            self.cmdqueue.extend(commands)
+        except Exception as e:
+            print(f"Batch error: {e}")
