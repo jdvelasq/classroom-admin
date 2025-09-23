@@ -1,5 +1,10 @@
 .DS_Store
 
+fundamentos.txt
+descriptiva.txt
+predictiva.txt
+estudiantes.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
