@@ -1,4 +1,4 @@
-student ?
+student juanjoseArangom
 course fundamentos
 assigment lab_01 actions delete actions create actions grant
 assigment lab_02 actions delete actions create actions grant
@@ -13,12 +13,12 @@ assigment lab_10 actions delete actions create actions grant
 assigment lab_11 actions delete actions create actions grant
 assigment lab_12 actions delete actions create actions grant
 assigment lab_13 actions delete actions create actions grant
-assigment pre_01 actions delete actions create actions grant
-assigment pre_02 actions delete actions create actions grant
-assigment pre_03 actions delete actions create actions grant
-assigment pre_04 actions delete actions create actions grant
-assigment pre_05 actions delete actions create actions grant
-assigment pre_06 actions delete actions create actions grant
+# assigment pre_01 actions delete actions create actions grant
+# assigment pre_02 actions delete actions create actions grant
+# assigment pre_03 actions delete actions create actions grant
+# assigment pre_04 actions delete actions create actions grant
+# assigment pre_05 actions delete actions create actions grant
+# assigment pre_06 actions delete actions create actions grant
 assigment pre_07 actions delete actions create actions grant
 assigment pre_08 actions delete actions create actions grant
 assigment pre_09 actions delete actions create actions grant
