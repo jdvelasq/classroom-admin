@@ -100,6 +100,12 @@ class MainShell(BaseShell):
         try:
             with open(arg) as f:
                 commands = f.readlines()
+
+            commands = [
+                line.strip()
+                for line in commands
+                if line.strip() and not line.strip().startswith("#")
+            ]
             commands = " ".join(commands)
             commands = commands.split()
             commands = [cmd.strip() for cmd in commands if cmd.strip()]
