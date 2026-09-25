@@ -1,4 +1,4 @@
-def get_repo_to_username():
+def get_repo_name_to_username():
 
     repo_to_username = {}
 

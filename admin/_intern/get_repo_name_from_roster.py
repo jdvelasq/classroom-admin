@@ -1,7 +1,7 @@
 from admin._intern.load_roster import load_roster
 
 
-def get_roster_repos():
+def get_repo_name_from_roster():
 
     roster = load_roster()
     repos = roster["nombre"]

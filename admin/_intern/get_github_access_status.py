@@ -1,10 +1,10 @@
-from admin._intern.get_org_repos import get_org_repos
+from admin._intern.get_github_repos import get_github_repos
 from admin._intern.gh import run_gh_json
 
 
-def get_org_access_status(org_name):
+def get_github_access_status(org_name):
 
-    repo_names = get_org_repos(org_name)
+    repo_names = get_github_repos(org_name)
     status = {}
 
     print("\n\nObtaining access status for each repository...\n\n")

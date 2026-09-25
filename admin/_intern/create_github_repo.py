@@ -1,7 +1,7 @@
 from admin._intern.gh import run_gh
 
 
-def create_repo(org_name, repo_name, template_repo="classroom-template"):
+def create_github_repo(org_name, repo_name, template_repo="classroom-template"):
 
     run_gh(
         [

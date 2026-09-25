@@ -6,7 +6,7 @@ from admin._intern import get_username_from_email, load_roster
 from admin._intern.save_roster import save_roster
 
 
-def usernames(org_name):
+def resolve_github_usernames(org_name):
 
     roster = load_roster()
 

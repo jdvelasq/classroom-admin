@@ -1,15 +1,15 @@
 from admin._intern import (
-    get_org_access_status,
-    get_repo_to_username,
+    get_github_access_status,
+    get_repo_name_to_username,
     invite_collaborator,
 )
 from admin._intern.gh import GhError
 
 
-def grant_access(org_name):
+def grant_repo_access(org_name):
 
-    repo_to_username = get_repo_to_username()
-    status = get_org_access_status(org_name)
+    repo_to_username = get_repo_name_to_username()
+    status = get_github_access_status(org_name)
     status = {
         k: v for k, v in status.items() if v["status"] not in ["accepted", "pending"]
     }

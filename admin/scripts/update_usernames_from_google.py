@@ -3,7 +3,7 @@ import pandas as pd
 from admin._intern import load_google, load_roster, save_roster
 
 
-def google():
+def update_usernames_from_google():
 
     roster = load_roster()
     google = load_google()
